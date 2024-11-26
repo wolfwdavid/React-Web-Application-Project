@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transparent Window</title>
+    <style>
+        body {
+            margin: 0;
+            background: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+            overflow: hidden;
+        }
+
+        #virtual-window {
+            position: absolute;
+            width: 400px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent content */
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            top: 50px;
+            left: 50px;
+            cursor: grab;
+        }
+
+        #draggable-titlebar {
+            height: 40px;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent title bar */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            -webkit-app-region: drag; /* Enable drag functionality */
+        }
+
+        #window-controls button {
+            border: none;
+            background: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #window-controls button:hover {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="virtual-window">
+        <div id="draggable-titlebar">
+            <span>Custom Window</span>
+            <div id="window-controls">
+                <button id="minimize-button">—</button>
+                <button id="close-button">×</button>
+            </div>
+        </div>
+    </div>
+    <script src="renderer.js"></script>
+</body>
+</html>
